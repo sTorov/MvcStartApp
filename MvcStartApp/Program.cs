@@ -2,6 +2,8 @@ namespace MvcStartApp
 {
     class Program
     {
+        public static WebApplicationBuilder builder;
+
         static void Main(string[] args)
         {
             CreateHostBulder(args).Build().Run();
