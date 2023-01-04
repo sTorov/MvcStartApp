@@ -13,11 +13,19 @@ namespace MvcStartApp.Models.Db.Repositories
 
         public async Task AddUser(User user)
         {
+            user.JoinDate = DateTime.Now;
+            user.Id = Guid.NewGuid();
+
             var entry = _context.Entry(user);
             if(entry.State == EntityState.Detached)
                 await _context.Users.AddAsync(user);
 
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<User[]> GetUsers()
+        {
+            return await _context.Users.ToArrayAsync();
         }
     }
 }
