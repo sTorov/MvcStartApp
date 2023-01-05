@@ -2,43 +2,7 @@
     ViewData["Title"] = "Logs";
 }
 
-<style>
-    table {
-        border-spacing: 0 15px;
-        align-self: center;
-    }
-
-    td {
-        border: 1px solid black;
-    }
-
-    .text-center.container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    tr > td{
-        width: max-content;
-        padding-right: 20px;
-        text-align: left;
-    }
-
-    .tr-title{
-        background-color: lightblue;
-        border-bottom-width: 5px;
-    }
-
-    .tr-title > td{
-        padding: 4px;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    .tr-data:nth-child(odd){
-        background-color: lightgray;
-    }
-</style>
+<link rel="stylesheet" href="~/css/style.css" />
 
 <div class="text-center container">
     <h4 class="display-4">История запросов</h4>
