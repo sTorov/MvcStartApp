@@ -19,17 +19,17 @@ namespace MvcStartApp.Controllers
             return View(authors);
         }
 
-        //[HttpGet]
+        [HttpGet]
         public IActionResult Register()
         {            
             return View();
         }
 
         [HttpPost]
-        public async Task<string>/*Task<IActionResult>*/ Register(User newUser)
+        public async Task<IActionResult> Register(User newUser)
         {
             await _repo.AddUser(newUser);
-            return /*View(newUser)*/ $"Success: {newUser.FirstName}";
+            return View(newUser);
         }
     }
 }
