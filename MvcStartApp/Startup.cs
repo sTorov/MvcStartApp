@@ -17,6 +17,7 @@ namespace MvcStartApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IBlogRepository, BlogRepository>();
+            services.AddSingleton<IRequestRepository, RequestRepository>();
 
             string connection = _configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<BlogContext>(options => options.UseSqlServer(connection), ServiceLifetime.Singleton);

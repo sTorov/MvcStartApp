@@ -6,15 +6,26 @@ namespace MvcStartApp.Controllers
     public class LoggingMiddleware
     {
         private readonly RequestDelegate _next;
+        private readonly IRequestRepository _repo;
 
-        public LoggingMiddleware(RequestDelegate next, IBlogRepository repo)
+        public LoggingMiddleware(RequestDelegate next, IRequestRepository repo)
         {
             _next = next;
+            _repo = repo;
         }
 
         public async Task InvokeAsync(HttpContext context)
         {
-            Console.WriteLine($"[{DateTime.Now}]: New request to https://{context.Request.Host.Value + context.Request.Path}");
+            var newRequest = new Request
+            {
+                Id = Guid.NewGuid(),
+                Date = DateTime.Now,
+                Url = $"https://{context.Request.Host.Value + context.Request.Path}",
+            };
+
+            await _repo.Add(newRequest);
+
+            Console.WriteLine($"[{newRequest.Date}]: New request to {newRequest.Url}");
 
             await _next.Invoke(context);
         }
