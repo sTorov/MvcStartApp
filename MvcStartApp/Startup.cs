@@ -5,6 +5,9 @@ using MvcStartApp.Models.Db.Repositories;
 
 namespace MvcStartApp
 {
+    /// <summary>
+    /// Класс для настройки приложения и сервисов
+    /// </summary>
     public class Startup
     {
         private readonly IConfiguration _configuration;
@@ -14,6 +17,9 @@ namespace MvcStartApp
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Метод для подключения сервисов
+        /// </summary>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IBlogRepository, BlogRepository>();
@@ -25,6 +31,9 @@ namespace MvcStartApp
             services.AddControllersWithViews();
         }
 
+        /// <summary>
+        /// Метод для настройки конвеера запросов
+        /// </summary>
         public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

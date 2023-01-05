@@ -2,6 +2,9 @@
 
 namespace MvcStartApp.Models.Db.Repositories
 {
+    /// <summary>
+    /// Репозиторий запросов
+    /// </summary>
     public class RequestRepository : IRequestRepository
     {
         private readonly BlogContext _context;

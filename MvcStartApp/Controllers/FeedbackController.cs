@@ -4,6 +4,9 @@ using System.Diagnostics;
 
 namespace MvcStartApp.Controllers
 {
+    /// <summary>
+    /// Контроллер для обработкм отзывов
+    /// </summary>
     public class FeedbackController : Controller
     {
         /// <summary>

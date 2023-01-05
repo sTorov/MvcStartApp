@@ -3,6 +3,9 @@ using MvcStartApp.Models.Db.Repositories;
 
 namespace MvcStartApp.Controllers
 {
+    /// <summary>
+    /// Промежуточное ПО для логирования и сохраниения истории запросов в БД
+    /// </summary>
     public class LoggingMiddleware
     {
         private readonly RequestDelegate _next;

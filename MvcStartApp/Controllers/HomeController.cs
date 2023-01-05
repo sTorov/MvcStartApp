@@ -5,6 +5,9 @@ using MvcStartApp.Models.Db.Repositories;
 
 namespace MvcStartApp.Controllers
 {
+    /// <summary>
+    /// Базовый контроллер
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly IBlogRepository _repo;
@@ -14,11 +17,17 @@ namespace MvcStartApp.Controllers
             _repo = repo;
         }        
 
+        /// <summary>
+        /// Метод, возвращающий главную страницу
+        /// </summary>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Метод, возвращающий страницу политики конфиденциальности
+        /// </summary>
         public IActionResult Privacy()
         {
             return View();
